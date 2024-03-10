@@ -4,8 +4,8 @@
   "description": "Backend",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Maiger Ovalle Ruz",
   "license": "ISC",
