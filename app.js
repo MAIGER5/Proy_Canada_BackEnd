@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const cors = require('cors');
-const mainRoute = require('./src/routes/mainRoute.js');
+// const mainRoute = require('./src/routes/mainRoute.js');
 
 require('./db.js')
 
@@ -27,7 +27,17 @@ const corsOptions = {
   });
 
 
-  app.use('/', mainRoute)
+  // app.use('/', mainRoute)
+
+  app.get('/', (req, res) => {
+    res.send('¡Hola mundo!');
+});
+
+app.get('/about', (req, res) => {
+    res.send('Esta es la página de acerca de nosotros.');
+});
+
+
 
   app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars   //middleware de manejo de errores 
       const status = err.status || 500;
