@@ -4,7 +4,8 @@ const { Router } = require('express');
 const mainRoute = Router()
 
 mainRoute.get("/", (req, res)=>{
-    res.send("ELABORANDO UNA PRUEBA DE SERVIDOR")
+    console.log(req.header);
+    res.send("  QUISIERA LEVANTARTE A BESOIS")
   })
 // mainRouter.use('/product', productRoute)
 // mainRouter.use('/client', productClient)
