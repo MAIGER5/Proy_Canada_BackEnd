@@ -9,6 +9,15 @@ require('./db.js')
 const app = express();
 
 
+app.get('/', (req, res) => {
+  res.send('¡Hola mundo!');
+});
+
+app.get('/about', (req, res) => {
+  res.send('Esta es la página de acerca de nosotros.');
+});
+
+
 const corsOptions = {
     origin: "*",
   };
@@ -28,16 +37,6 @@ const corsOptions = {
 
 
   // app.use('/', mainRoute)
-
-  app.get('/', (req, res) => {
-    res.send('¡Hola mundo!');
-});
-
-app.get('/about', (req, res) => {
-    res.send('Esta es la página de acerca de nosotros.');
-});
-
-
 
   app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars   //middleware de manejo de errores 
       const status = err.status || 500;
