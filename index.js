@@ -10,5 +10,5 @@ server.listen(PORT, ()=>{
     console.log(`Estoy escuchando en el puerto # ${PORT}`);
     console.log(`Me encuentro en el servidor`)
 })
-conn.sync({ alter: true }).then(()=>{
-})
+// conn.sync({ alter: true }).then(()=>{
+// })

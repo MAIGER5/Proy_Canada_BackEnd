@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 // const mainRoute = require('./src/routes/mainRoute.js');
 
-require('./db.js')
+// require('./db.js')
 
 const app = express();
 
