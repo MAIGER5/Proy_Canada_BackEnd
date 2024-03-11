@@ -6,9 +6,9 @@ const PORT = 3000;
 -
 
 
-conn.sync({ alter: false }).then(()=>{
-    server.listen(PORT, ()=>{
-        console.log(`Estoy escuchando en el puerto # ${PORT}`);
-        console.log(`Me encuentro en el servidor`)
-    })
+server.listen(PORT, ()=>{
+    console.log(`Estoy escuchando en el puerto # ${PORT}`);
+    console.log(`Me encuentro en el servidor`)
+})
+conn.sync({ alter: true }).then(()=>{
 })
