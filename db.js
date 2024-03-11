@@ -20,14 +20,14 @@ functionClient(sequelize);
 functionProduct(sequelize);
 
 async function testPostgreSQLConnection() {
-    try {
-      await sequelize.authenticate();
-      console.log('Connection has been established successfully.');
-      // Resto de la lógica de tu aplicación
-    } catch (error) {
-      console.error('Unable to connect to the database:', error);
-    }
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+    // Resto de la lógica de tu aplicación
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
   }
+}
    
   testPostgreSQLConnection();
   
