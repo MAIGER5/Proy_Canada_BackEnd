@@ -5,11 +5,11 @@ const mainRoute = Router()
 
 mainRoute.get("/", (req, res)=>{
     console.log(req.header);
-    res.send("  QUISIERA LEVANTARTE A BESOIS")
+    res.send(" VOY A SER EL MEJOR")
 })
 mainRoute.get("/about", (req, res)=>{
     console.log(req.header);
-    res.send("  VAMOS CON TODA KIKI")
+    res.send("  quiero comerte KIKI")
 })
 // mainRouter.use('/product', productRoute)
 // mainRouter.use('/client', productClient)
