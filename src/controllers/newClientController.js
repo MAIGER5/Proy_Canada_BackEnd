@@ -16,7 +16,6 @@ const newClientController = async (company, contacto, nit, mail, phone, ciudad, 
     });
     return clientNew; // Retorna el nuevo cliente si se crea con éxito
   } catch (error) {
-    console.error("Error creating client:", error);
     throw new Error("Error creating client"); // Lanza un error con un mensaje claro
   }
 };

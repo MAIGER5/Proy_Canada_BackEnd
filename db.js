@@ -18,7 +18,7 @@ const sequelize = new Sequelize(`mysql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${
 // Importa los modelos
 const functionClient = require('./src/models/clienteModel');
 const functionProduct = require('./src/models/productModel');
-const functionUsers = require('./src/models/usersModel');
+const functionUsers = require('./src/models/emplyeeModel');
 const functionContact = require('./src/models/contactModel');
 
 functionClient(sequelize);

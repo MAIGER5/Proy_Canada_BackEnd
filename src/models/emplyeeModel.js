@@ -1,7 +1,7 @@
 const  { DataTypes, Sequelize} = require('sequelize');
 
 module.exports = (Sequelize)=>{
-  Sequelize.define('User',{
+  Sequelize.define('Employee',{
     idUser: {
       type:DataTypes.UUID,
       primaryKey: true,
@@ -12,7 +12,7 @@ module.exports = (Sequelize)=>{
       type: DataTypes.STRING,
       allowNull: true,
     },
-    phone: {
+    cedula: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -20,11 +20,11 @@ module.exports = (Sequelize)=>{
       type: DataTypes.STRING,
       allowNull: true,
     },
-    password1: {
+    phone: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    password2: {
+    password: {
       type: DataTypes.STRING,
       allowNull: true,
     },
