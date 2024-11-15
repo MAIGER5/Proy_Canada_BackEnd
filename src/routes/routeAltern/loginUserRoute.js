@@ -1,12 +1,13 @@
 const { Router } = require('express');
-const loginUserHandler = require('../../handlers/loginUserHandler');
-const getUserHandler = require('../../handlers/getUserHandler');
+const loginClientHandler = require('../../handlers/loginClientHandler');
+const loginEmployeeHandler = require('../../handlers/loginEmployeeHandler');
 
 
 const loginUserRoute = Router();
 
-loginUserRoute.post('/', loginUserHandler)
-loginUserRoute.get('/', getUserHandler)
+loginUserRoute.post('/employee', loginEmployeeHandler);
+loginUserRoute.post('/client', loginClientHandler)
+
 
 
 module.exports = loginUserRoute
