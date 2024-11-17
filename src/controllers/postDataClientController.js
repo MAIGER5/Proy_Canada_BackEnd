@@ -1,10 +1,8 @@
-const bcrypt = require('bcrypt');
 const { Client } = require('../../db');
 
 const postDataClientController = async (clientData) => {
   if (clientData && Array.isArray(clientData)) {
     for (const ele of clientData) {
-      const password = await bcrypt.hash(ele.password, 10);
       await Client.create({
         company: ele.company,
         contacto: ele.contacto,
@@ -12,7 +10,7 @@ const postDataClientController = async (clientData) => {
         mail: ele.mail,
         phone: ele.phone,
         ciudad: ele.ciudad,
-        password,
+        password:ele.password
       });
     }
   }

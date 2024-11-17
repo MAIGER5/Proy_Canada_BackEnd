@@ -5,7 +5,8 @@ const clientRoute = require('./routeAltern/clientRoute');
 const postEmployeeRoute = require('./routeAltern/postEmployeeRoute');
 
 
-const mainRoute = Router()
+const mainRoute = Router();
+
 
 mainRoute.use('/login', loginUserRoute)
 mainRoute.use('/employee', postEmployeeRoute)

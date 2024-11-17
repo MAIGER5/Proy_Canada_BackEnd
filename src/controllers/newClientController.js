@@ -1,11 +1,8 @@
 const { Client } = require('../../db');
 
 
-const newClientController = async (company, contacto, nit, mail, phone, ciudad, hashedPassword) => {
+const newClientController = async (company, contacto, nit, mail, phone, ciudad, password) => {
   try {
-
-    const password = hashedPassword
-
     const clientNew = await Client.create({
       company, 
       contacto, 

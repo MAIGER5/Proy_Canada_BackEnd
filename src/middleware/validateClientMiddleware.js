@@ -25,7 +25,7 @@ const clientSchema = Joi.object({
 
 
 
-const validateClient = (req, res, next) => {
+const validateClientMiddleware = (req, res, next) => {
   const { error } = clientSchema.validate(req.body, { abortEarly: false }); // Valida todos los campos
 
   if (error) {
@@ -37,4 +37,4 @@ const validateClient = (req, res, next) => {
   next(); // Pasa al siguiente middleware si no hay errores
 };
 
-module.exports = validateClient;
+module.exports = validateClientMiddleware;

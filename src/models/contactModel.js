@@ -1,7 +1,7 @@
-const  { DataTypes, Sequelize} = require('sequelize');
+const  { DataTypes} = require('sequelize');
 
-module.exports = (Sequelize)=>{
-  Sequelize.define('Contact',{
+module.exports = (sequelize)=>{
+  const Contact = sequelize.define('Contact',{
     idContact: {
       type:DataTypes.UUID,
       primaryKey: true,
@@ -32,6 +32,6 @@ module.exports = (Sequelize)=>{
       type: DataTypes.STRING,
       allowNull: true,
     },
-    
   })
+  return Contact
 }

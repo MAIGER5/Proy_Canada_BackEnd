@@ -1,16 +1,10 @@
 const Joi = require('joi')
 
 const clientSchema = Joi.object({
-  name: Joi.string().required().messages({
-      'string.empty': 'El nombre de la empresa es obligatorio'}),
-  cedula: Joi.string().required().messages({
-      'string.empty': 'El nombre de la empresa es obligatorio'}),
   mail: Joi.string().email().required().messages({
     'string.email': 'Debe ser un correo electrónico válido',
     'string.empty': 'El correo electrónico es obligatorio',
 }),
-  phone: Joi.string().required().messages({
-      'string.empty': 'El nombre de la empresa es obligatorio'}),
   password: Joi.string().min(8).required().messages({
     'string.min': 'La contraseña debe tener al menos 8 caracteres',
     'string.empty': 'La contraseña es obligatoria',
@@ -19,7 +13,7 @@ const clientSchema = Joi.object({
 
 
 
-const validateEmployeeMiddleware = (req, res, next) => {
+const validateLoginClientMiddleware = (req, res, next) => {
   const { error } = clientSchema.validate(req.body, { abortEarly: false }); // Valida todos los campos
 
   if (error) {
@@ -31,4 +25,4 @@ const validateEmployeeMiddleware = (req, res, next) => {
   next(); // Pasa al siguiente middleware si no hay errores
 };
 
-module.exports = validateEmployeeMiddleware;
+module.exports = validateLoginClientMiddleware;

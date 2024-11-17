@@ -10,7 +10,7 @@ const loginClientHandler = async (req, res)=>{
     const response = await loginClientController( mail, password );
     res.status(200).json(response)
   } catch (error) {
-    res.status(404).json({ error: error.message })
+    res.status(404).json({ error: error.message, error1:'este es el handler' })
   }
 }
 
