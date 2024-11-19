@@ -22,13 +22,20 @@ const loginClientController = async (mail, password)=>{
       process.exit(1); // Detener la aplicación si no está definido
     }
     //si el password coincide entonces vamos a generar el token JWT
+    const company = client.company
+    const email = client.mail
     const token = jwt.sign(
-      {idClient:client.idClient, mail: client.mail},
+      {
+        idClient:client.idClient, 
+        mail: client.mail
+      },
       process.env.JWT_SECRET,
-      {expiresIn:'1h'}
+      {
+        expiresIn:'1h'
+      }
     )
     //respondo con el token
-    return {token};
+    return {token, company, email};
   } catch (error) {
     return { error: error.message };
   }
