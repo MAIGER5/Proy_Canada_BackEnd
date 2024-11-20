@@ -3,27 +3,28 @@ const { json } = require('sequelize');
 const jwt = require('jsonwebtoken');
 const { Client } = require('../../db');
 
-const loginClientController = async (mail, password)=>{
+const loginClientController = async (req, res)=>{
+
+  const { mail, password } = req.body;
+
   try {
     //primero busco el cliente en la tabla cient de la base de datos
     const client = await Client.findOne({where:{mail}});
     //si no existe nada la busqueda retorna un error
     if (!client) {
-      return {error:`Cliente con mail ${mail} no encontrado`}
+      return res.status(404).json({ error: `Cliente con correo ${mail} no encontrado` });
     }
     //si se encuentra una coincicendia del cliente entonces vamos verificar el password a travez del motodo validatePassword
     const isMath = await client.validatePassword(password);
     //si no existe nada la busqueda retorna un error
     if (!isMath) {
-      return {error:'Contraseña invalida'}
+      return res.status(401).json({ error: 'Contraseña inválida' });
     }
     if (!process.env.JWT_SECRET) {
-      console.error('JWT_SECRET is not defined!');
-      process.exit(1); // Detener la aplicación si no está definido
+      console.error('JWT_SECRET no está definido');
+      return res.status(500).json({ error: 'Error interno del servidor' });
     }
     //si el password coincide entonces vamos a generar el token JWT
-    const company = client.company
-    const email = client.mail
     const token = jwt.sign(
       {
         idClient:client.idClient, 
@@ -35,9 +36,14 @@ const loginClientController = async (mail, password)=>{
       }
     )
     //respondo con el token
-    return {token, company, email};
+    return res.status(200).json({
+      token,
+      company: client.company,
+      email: client.mail,
+    });
   } catch (error) {
-    return { error: error.message };
+    console.error('Error en loginClientController:', error.message);
+    return res.status(500).json({ error: 'Error interno del servidor' });
   }
 };
 

@@ -2,7 +2,7 @@ const Joi = require('joi')
 
 const clientSchema = Joi.object({
   mail: Joi.string().email().required().messages({
-    'string.email': 'Debe ser un correo electrónico válido',
+    'string.email': 'Debe ser un correo electrónico válido. Eje: usuario@dominio.com',
     'string.empty': 'El correo electrónico es obligatorio',
 }),
   password: Joi.string().min(8).required().messages({
