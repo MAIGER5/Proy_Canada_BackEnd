@@ -6,7 +6,7 @@ const validateLoginClientMiddleware = require('../../middleware/validateLoginCli
 
 const loginUserRoute = Router();
 
-loginUserRoute.post('/employee', loginEmployeeHandler);
+loginUserRoute.post('/employee', validateLoginClientMiddleware, loginEmployeeHandler);
 loginUserRoute.post('/client', validateLoginClientMiddleware, loginClientHandler)
 
 
