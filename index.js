@@ -2,7 +2,7 @@ const server = require('./app.js');
 const { conn } = require('./db.js');
 
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 

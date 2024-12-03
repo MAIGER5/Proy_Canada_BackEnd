@@ -27,7 +27,11 @@ const corsOptions = {
   });
 
 
-  app.use('/', mainRoute)
+  app.use('/', mainRoute);
+
+  app.get('/', (req, res) => {
+    res.send('¡Bienvenido! El servidor está funcionando correctamente.');
+  });
 
   app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars   //middleware de manejo de errores 
       const status = err.status || 500;
