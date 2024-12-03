@@ -9,9 +9,16 @@ require('./db.js')
 const app = express();
 
 
+// const corsOptions = {
+//     origin: "*",
+//   };
+
 const corsOptions = {
-    origin: "*",
-  };
+  origin: ['https://carmeusecolombia.maigerprofile.com'], // Reemplaza con la URL de tu cliente
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+  credentials: true // Si manejas cookies o sesiones
+};
+  
   
   app.use(cors(corsOptions));
   app.use(express.json({ limit:'10mb' }));  //El middleware express.json() analizará automáticamente el cuerpo de la solicitud si está en formato JSON y lo convertirá en un objeto JavaScript accesible a través de req.body
