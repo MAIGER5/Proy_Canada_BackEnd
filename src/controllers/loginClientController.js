@@ -28,13 +28,14 @@ const loginClientController = async (req, res)=>{
     const token = jwt.sign(
       {
         idClient:client.idClient, 
-        mail: client.mail
+        mail: client.mail,
       },
       process.env.JWT_SECRET,
       {
         expiresIn:'1h'
       }
     )
+    
     //respondo con el token
     return res.status(200).json({
       token,
