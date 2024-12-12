@@ -9,15 +9,15 @@ require('./db.js')
 const app = express();
 
 
-// const corsOptions = {
-//     origin: "*",
-//   };
-
 const corsOptions = {
-  origin: ['https://carmeusecolombia.maigerprofile.com'], // Reemplaza con la URL de tu cliente
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-  credentials: true // Si manejas cookies o sesiones
-};
+    origin: "*",
+  };
+
+// const corsOptions = {
+//   origin: ['https://carmeusecolombia.maigerprofile.com'], // Reemplaza con la URL de tu cliente
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+//   credentials: true // Si manejas cookies o sesiones
+// };
   
   
   app.use(cors(corsOptions));
@@ -26,8 +26,8 @@ const corsOptions = {
   app.use(cookieParser());
   app.use(morgan('dev'))
   app.use((req, res, next) => {
-    // res.header('Access-Control-Allow-Origin', 'http://localhost:5173'); // update to match the domain you will make the request from
-    res.header('Access-Control-Allow-Origin', 'https://carmeusecolombia.maigerprofile.com'); // update to match the domain you will make the request from
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173'); // update to match the domain you will make the request from
+    // res.header('Access-Control-Allow-Origin', 'https://carmeusecolombia.maigerprofile.com'); // update to match the domain you will make the request from
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
