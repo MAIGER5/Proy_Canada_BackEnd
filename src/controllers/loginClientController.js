@@ -29,6 +29,7 @@ const loginClientController = async (req, res)=>{
       {
         idClient:client.idClient, 
         mail: client.mail,
+        company: client.company,
       },
       process.env.JWT_SECRET,
       {
