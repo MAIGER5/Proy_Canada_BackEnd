@@ -28,7 +28,8 @@ const loginEmployeeController = async (req, res)=>{
     const token = jwt.sign(
       {
         idUser:employee.idUser, 
-        mail: employee.mail
+        mail: employee.mail,
+        name: employee.name,
       },
       process.env.JWT_SECRET,
       {
