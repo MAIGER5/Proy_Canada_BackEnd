@@ -39,8 +39,7 @@ const loginEmployeeController = async (req, res)=>{
     //respondo con el token
     return res.status(200).json({
       token,
-      name: employee.name,
-      email: employee.mail,
+
     });
   } catch (error) {
     console.error('Error en loginEmployeetController:', error.message);

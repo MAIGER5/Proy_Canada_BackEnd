@@ -40,8 +40,6 @@ const loginClientController = async (req, res)=>{
     //respondo con el token
     return res.status(200).json({
       token,
-      company: client.company,
-      email: client.mail,
     });
   } catch (error) {
     console.error('Error en loginClientController:', error.message);
